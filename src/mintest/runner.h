@@ -20,7 +20,6 @@ void magenta () {
 int main(int argc, char *argv[]) {
 
     pid_t son, wpid;
-    int i;
     int pass_count = 0;
     int status = 0;
     int size = sizeof(all_tests)/sizeof(test_data);
@@ -42,12 +41,12 @@ int main(int argc, char *argv[]) {
                 break;
             };
         };
-        
+        reset();
         if(son == 0 ){
             return count;
         }
 
-        reset();
+        
         while ((wpid = wait(&status)) > 0){
             int id = wpid - getpid();
             magenta();
