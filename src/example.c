@@ -8,10 +8,9 @@ int test1() {
 }
 
 int test2() {
-    test_assert(1 == 1, "Neither this.");
     test_assert(1 == 0, "This always fails!");
+    test_assert(1 == 1, "Neither this.");
     printf("This never runs!\n");
-    
     return 0;
 }
 
@@ -49,6 +48,7 @@ int test7(){
     for(i = 0; i< 100; i++){
         test_printf("The cake is a lie\n");
     }
+    return 0;
 }
 int test8(){
     test_printf("Teste Rapido\n");
@@ -56,8 +56,18 @@ int test8(){
     sleep(5);
     test_printf("Teste Lento\n");
     test_assert(1+1 == 2, "Teste Lento");
+    return 0;
+
+}
+int test9(){
+    alarm(5);
+    int *n = NULL;
+    *n = 10;
+    test_assert(2>1, "Falha de segmentação");
+    return 0;
+
 }
 
-test_list = { TEST(test1), TEST(test2), TEST(test3), TEST(test4), TEST(test5), TEST(test6), TEST(test7), TEST(test8) };
+test_list = { TEST(test1), TEST(test2), TEST(test3), TEST(test4), TEST(test5), TEST(test6), TEST(test7), TEST(test8), TEST(test9) };
 
 #include "mintest/runner.h"
