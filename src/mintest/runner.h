@@ -50,7 +50,7 @@ int main(int argc, char *argv[]) {
             int id = wpid - getpid();
             magenta();
             if (WIFSIGNALED(status)) printf("test%d: [Erro] %s\n",id,strsignal(WTERMSIG(status)));
-            pass_count += WEXITSTATUS(status); 
+            pass_count += WEXITSTATUS(status);
         };
 
         reset();
